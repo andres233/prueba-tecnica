@@ -2,8 +2,8 @@
     <div>
         <nav class="navbar navbar-expand-md navbar-dark navbar-laravel" >
             <div class="container">
-              
-                <router-link :to="{name: 'home'}" class="navbar-brand"><span class="navbar-toggler-icon"></span>Buy Ticket</router-link>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <router-link :to="{name: 'home'}" class="navbar-brand"><span class="fa fa-fw fa-home"></span>Home</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

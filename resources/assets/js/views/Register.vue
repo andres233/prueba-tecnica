@@ -1,10 +1,10 @@
 
 <template>
-        <div class="container">
+        <div class="fondo">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 card-register">
                 <div class="card card-default">
-                    <div class="card-header">Register</div>
+                    <div class="card-header header-register">Register</div>
 
                     <div class="card-body">
                         <form>
@@ -41,8 +41,8 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary" @click="handleSubmit">
+                                <div class="col-md-6 offset-md-5">
+                                    <button type="submit" class="btn btn-dark" @click="handleSubmit">
                                         Register
                                     </button>
                                 </div>
@@ -72,6 +72,7 @@
                 
                 if (this.password === this.password_confirmation && this.password.length > 0)
                 {
+                    if(this.name.length>0 && this.email.length>0){
                     axios.post('api/register', {
                         name: this.name,
                         email: this.email,
@@ -95,6 +96,9 @@
                       .catch(error => {
                         console.error(error);
                       });
+                    }else{
+                        alert('todos los datos son requeridos')
+                    }  
                 } else {
                     this.password = ""
                     this.passwordConfirm = ""
@@ -105,3 +109,23 @@
         }
     }
 </script>
+
+<style scoped>
+.fondo {
+  background-color: white;
+  height: 100%;
+  margin-top: -30px;
+  background-image: url("./images/fondomano.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-register{
+    margin: 9%;
+    opacity: 0.7;
+}
+.header-register{
+    background-color: black;
+    color: white;
+}
+</style>

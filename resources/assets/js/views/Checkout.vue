@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="order-box">
-                    <img :src="product.image" :alt="product.name">
+                    <img :src="product.image" :alt="product.name" class="img-prod">
                     <h2 class="title" v-html="product.name"></h2>
                     <p class="small-text text-muted float-left">$ {{product.price}}</p>
                     <p class="small-text text-muted float-right">Available Units: {{product.units}}</p>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <br>
-                        <button class="col-md-4 btn btn-sm btn-success float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
+                        <button class="col-md-4 btn btn-sm btn-dark float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
                     </div>
                 </div>
             </div>
@@ -71,6 +71,9 @@
             },
             placeOrder(e) {
                 e.preventDefault()
+                if(this.address.length<1){
+                    alert('address is required');
+                }
                 axios.post('api/orders/', {
                     address : this.address,
                     quantity: this.quantity,
@@ -102,5 +105,8 @@
     }
     .title {
         font-size: 36px;
+    }
+    .img-prod {
+        height: 200px;
     }
 </style>

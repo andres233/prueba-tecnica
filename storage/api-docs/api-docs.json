@@ -1,0 +1,131 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentacion API - Prueba Tecnica",
+        "description": "Documentacion elaborada con swagger para prueba tecnica (by Andres Cuevas)",
+        "contact": {
+            "email": "andres-felipe32@hotmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Mostrar boletas disponibles",
+                "operationId": "1bfaa78d1c2c3848ab8165c5dadcad3e",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "406": {
+                        "description": "Not acceptable"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login",
+                "operationId": "0fc9610184083ac6dddab2c63139225a",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "address email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "406": {
+                        "description": "Not acceptable"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register",
+                "operationId": "2f25885f3b6f61ca11724ec302d2e439",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "address email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "c_password",
+                        "in": "query",
+                        "description": "confirmate password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "406": {
+                        "description": "Not acceptable"
+                    }
+                }
+            }
+        }
+    }
+}

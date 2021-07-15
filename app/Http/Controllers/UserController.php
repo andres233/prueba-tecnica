@@ -8,11 +8,54 @@ use Auth;
 use Validator;
 use App\User;
 
+
+
 class UserController extends Controller
 {
+
     public function index(){
         return response()->json(User::with(['orders'])->get(), 200);
     }
+
+    
+    /**
+    * @OA\Post(
+    *     path="/api/login",
+    *     summary="Login",
+    *     tags={"Users"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation"
+    *     ),
+    *     @OA\Response(
+    *         response=500,
+    *         description="Internal server error"
+    *     ),
+    *     @OA\Response(
+    *         response=406,
+    *         description="Not acceptable"
+    *     ),
+    *     @OA\Parameter(
+    *          name="email",
+    *          description="address email",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+        *     @OA\Parameter(
+    *          name="password",
+    *          description="password",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    * )
+    */
+
     public function login(Request $request)
     {
         $credentials = [
@@ -34,6 +77,61 @@ class UserController extends Controller
         return response()->json($response, $status);
     }
 
+        /**
+    * @OA\Post(
+    *     path="/api/register",
+    *     summary="Register",
+    *     tags={"Users"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation"
+    *     ),
+    *     @OA\Response(
+    *         response=500,
+    *         description="Internal server error"
+    *     ),
+    *     @OA\Response(
+    *         response=406,
+    *         description="Not acceptable"
+    *     ),
+    *     @OA\Parameter(
+    *          name="email",
+    *          description="address email",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    *     @OA\Parameter(
+    *          name="name",
+    *          description="name user",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    *     @OA\Parameter(
+    *          name="password",
+    *          description="password",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    *     @OA\Parameter(
+    *          name="c_password",
+    *          description="confirmate password",
+    *          required=true,
+    *          in="query",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),        
+    * )
+    */
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [

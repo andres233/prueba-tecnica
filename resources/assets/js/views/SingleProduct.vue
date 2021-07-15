@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <img :src="product.image" :alt="product.name">
+                <img :src="product.image" :alt="product.name" class="img-prod">
                 <h3 class="title" v-html="product.name"></h3>
                 <p class="text-muted">{{product.description}}</p>
                 <h4>
@@ -11,7 +11,7 @@
                 </h4>
                 <br>
                 <hr>
-                <router-link :to="{ path: '/checkout?pid='+product.id }" class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</router-link>
+                <router-link :to="{ path: '/checkout?pid='+product.id }" class="col-md-4 btn btn-sm btn-dark float-right">Reservar</router-link>
             </div>
         </div>
     </div>
@@ -40,5 +40,8 @@
     }
     .title {
         font-size: 36px;
+    }
+    .img-prod {
+        height: 200px;
     }
 </style>

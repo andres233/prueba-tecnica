@@ -7,6 +7,25 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    /**
+    * @OA\Get(
+    *     path="/api/products",
+    *     summary="Mostrar boletas disponibles",
+    *     tags={"Products"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation"
+    *     ),
+    *     @OA\Response(
+    *         response=500,
+    *         description="Internal server error"
+    *     ),
+    *     @OA\Response(
+    *         response=406,
+    *         description="Not acceptable"
+    *     )
+    * )
+    */
     public function index()
     {
         return response()->json(Product::all(),200);
