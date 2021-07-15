@@ -35,6 +35,9 @@ $ composer install
 
   ```$ npm install```
 
+### compile swagger
+
+  ```$ php artisan l5-swagger:generate```
 
 ### Run the application
 
